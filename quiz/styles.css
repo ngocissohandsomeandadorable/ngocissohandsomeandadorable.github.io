@@ -1,0 +1,73 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.reading-task, .writing-task, .results-page {
+  margin-bottom: 40px;
+}
+
+.flex-container {
+  display: flex;
+  gap: 20px; /* Space between the two sections */
+}
+
+.text-section, .question-section {
+  flex: 1; /* Each section takes up equal width */
+}
+
+.scrollable-text, .scrollable-questions {
+  max-height: 500px; /* Adjust height as needed */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.question {
+  margin-bottom: 15px;
+}
+
+.feedback {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.feedback.correct::after {
+  content: '✔';
+  color: green;
+}
+
+.feedback.incorrect::after {
+  content: '✘';
+  color: red;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
