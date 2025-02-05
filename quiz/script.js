@@ -1,4 +1,3 @@
-// script.js
 let currentPage = 1;
 let readingScore = 0; // Store the reading score globally
 
@@ -38,14 +37,14 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
   };
 
   readingScore = 0;
+  const userAnswers = {};
 
   for (const [key, value] of Object.entries(answers)) {
     const selected = document.querySelector(`input[name="${key}"]:checked`);
     const feedbackSpans = document.querySelectorAll(`input[name="${key}"] + .feedback`);
-
     feedbackSpans.forEach(span => span.classList.remove('correct', 'incorrect'));
-
     if (selected) {
+      userAnswers[key] = selected.value; // Store user's answer
       if (selected.value === value) {
         readingScore++;
         selected.nextElementSibling.classList.add('correct');
@@ -55,6 +54,7 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
           .nextElementSibling.classList.add('correct');
       }
     } else {
+      userAnswers[key] = null; // No answer selected
       document.querySelector(`input[name="${key}"][value="${value}"]`)
         .nextElementSibling.classList.add('correct');
     }
@@ -65,43 +65,43 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
   // Transition to the writing task page
   document.querySelector('.reading-task').style.display = 'none';
   document.querySelector('.writing-task').style.display = 'block';
+
+  // Store the answers and score globally
+  window.quizResults = { answers: userAnswers, readingScore };
 });
 
 document.getElementById('submitWriting').addEventListener('click', () => {
+  // Get the values from the textareas
   const email = document.querySelectorAll('textarea')[0].value;
   const essay = document.querySelectorAll('textarea')[1].value;
 
-  // Prepare the data to send
-  const formData = new FormData();
-  formData.append('email', email);
-  formData.append('essay', essay);
-  formData.append('readingScore', readingScore);
+  // Combine quiz results and writing task
+  const payload = {
+    email: email,
+    readingScore: window.quizResults.readingScore,
+    answers: window.quizResults.answers,
+    emailContent: email,
+    essayContent: essay
+  };
 
-  // Send the data to the Google Apps Script Web App
-  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL'; // Replace with your deployed Web App URL
-
-  fetch(scriptURL, {
+  // Send the data to the Google Apps Script web app
+  fetch('https://script.google.com/macros/s/AKfycbxWXTrMrKfb7UgbSUuZk6HgLBq1CVg8bLuOcc-UxLRp0g7yj7XVR_8-8WT-4kBARfsFpQ/exec', {
     method: 'POST',
-    mode: 'no-cors', // Disable CORS
-    body: formData
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
   })
-    .then(() => {
-      alert('Results submitted successfully!');
-      
-      // Show reading results and feedback
-      document.querySelector('.writing-task').style.display = 'none';
-      document.querySelector('.results-page').style.display = 'block';
-
-      // Display reading results
-      const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = `<p>Your final reading score: ${readingScore}/${Object.keys(answers).length}</p>`;
-      
-      // Reveal feedback icons
-      const feedbackSpans = document.querySelectorAll('.feedback');
-      feedbackSpans.forEach(span => span.style.display = 'inline');
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        alert('Your quiz and writing tasks have been submitted successfully!');
+      } else {
+        alert('Error: ' + data.message);
+      }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('An error occurred while submitting your results. Please try again.');
+      alert('An error occurred while submitting your quiz.');
     });
 });
