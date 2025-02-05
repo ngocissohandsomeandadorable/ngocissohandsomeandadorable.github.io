@@ -80,7 +80,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
   };
 
   // Send the data to the Google Apps Script Web App
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyfLxROF83AOACITKX3pyPLPH5eR5fCuHYa7eFuEzaW5Hf11Gh7A0PApp7bzYtVoDepkQ/exec'; // Replace with your deployed Web App URL
+  const scriptURL = 'https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbyfLxROF83AOACITKX3pyPLPH5eR5fCuHYa7eFuEzaW5Hf11Gh7A0PApp7bzYtVoDepkQ/exec'; // Replace with your deployed Web App URL
 
   fetch(scriptURL, {
     method: 'POST',
