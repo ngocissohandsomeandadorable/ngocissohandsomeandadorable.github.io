@@ -77,6 +77,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
 
   // Combine quiz results and writing task
   const payload = {
+    
     readingScore: window.quizResults.readingScore,
     answers: window.quizResults.answers,
     emailContent: email,
@@ -84,7 +85,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
   };
 
   // Send the data to the Google Apps Script web app
-  fetch('https://script.google.com/macros/s/AKfycbxWXTrMrKfb7UgbSUuZk6HgLBq1CVg8bLuOcc-UxLRp0g7yj7XVR_8-8WT-4kBARfsFpQ/exec', {
+  fetch('YOUR_WEB_APP_URL', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
