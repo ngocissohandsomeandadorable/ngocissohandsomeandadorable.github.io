@@ -87,6 +87,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
   // Send the data to the Google Apps Script web app
   fetch('https://script.google.com/macros/s/AKfycbxQXuEYdDf3Jqqp5VruhaDQo69ic3LeovVlakzKWpuaSiPlyXc8s1mf_6wnCk5D8q8p1A/exec', {
     method: 'POST',
+    mode: 'no-cors', // Disable CORS
     headers: {
       'Content-Type': 'application/json'
     },
