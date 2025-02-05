@@ -5,10 +5,8 @@ document.getElementById('submitWriting').addEventListener('click', () => {
 
   // Combine quiz results and writing task
   const payload = {
-    email: email,
     readingScore: window.quizResults.readingScore,
-    answers: window.quizResults.answers,
-    emailContent: email,
+   emailContent: email,
     essayContent: essay
   };
 
