@@ -68,52 +68,37 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
 });
 
 document.getElementById('submitWriting').addEventListener('click', () => {
-  // Get the values from the textareas
   const email = document.querySelectorAll('textarea')[0].value;
   const essay = document.querySelectorAll('textarea')[1].value;
 
   // Prepare the data to send
-  const formData = {
-    email: email,
-    essay: essay,
-    readingScore: readingScore // Ensure `readingScore` is defined globally
-  };
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('essay', essay);
+  formData.append('readingScore', readingScore);
 
   // Send the data to the Google Apps Script Web App
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyfLxROF83AOACITKX3pyPLPH5eR5fCuHYa7eFuEzaW5Hf11Gh7A0PApp7bzYtVoDepkQ/exec'; // Replace with your deployed Web App URL
+  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL'; // Replace with your deployed Web App URL
 
   fetch(scriptURL, {
     method: 'POST',
- mode: 'no-cors',
-    headers: {
-      'Content-Type': 'application/json' // Specify JSON content type
-    },
-    body: JSON.stringify(formData) // Convert the data to JSON format
+    mode: 'no-cors', // Disable CORS
+    body: formData
   })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.status === 'success') {
-        alert('Results submitted successfully!');
-        
-        // Show reading results and feedback
-        document.querySelector('.writing-task').style.display = 'none';
-        document.querySelector('.results-page').style.display = 'block';
+    .then(() => {
+      alert('Results submitted successfully!');
+      
+      // Show reading results and feedback
+      document.querySelector('.writing-task').style.display = 'none';
+      document.querySelector('.results-page').style.display = 'block';
 
-        // Display reading results
-        const resultsDiv = document.getElementById('results');
-        resultsDiv.innerHTML = `<p>Your final reading score: ${readingScore}/${Object.keys(answers).length}</p>`;
-        
-        // Reveal feedback icons
-        const feedbackSpans = document.querySelectorAll('.feedback');
-        feedbackSpans.forEach(span => span.style.display = 'inline');
-      } else {
-        alert(`Error: ${data.message}`);
-      }
+      // Display reading results
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = `<p>Your final reading score: ${readingScore}/${Object.keys(answers).length}</p>`;
+      
+      // Reveal feedback icons
+      const feedbackSpans = document.querySelectorAll('.feedback');
+      feedbackSpans.forEach(span => span.style.display = 'inline');
     })
     .catch(error => {
       console.error('Error:', error);
