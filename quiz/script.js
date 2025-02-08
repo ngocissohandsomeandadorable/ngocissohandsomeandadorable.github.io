@@ -137,7 +137,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
   };
 
   // Send the data to your HTTP server
-  fetch('https://vstepquizresults-m5whs7jay-john-adams-projects-f7c25c80.vercel.app', { // Replace with your backend URL
+  fetch('https://vstepquizresults-d17gl1fal-john-adams-projects-f7c25c80.vercel.app', { // Replace with your backend URL
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
