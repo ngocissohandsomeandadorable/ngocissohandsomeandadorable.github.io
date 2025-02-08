@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <p style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 14px; color: gray;">
+    © 2025 PTN
+  </p>
+
+  <!-- Welcome Page -->
+  <div class="welcome-page">
+    <br> <br>
+    <h1 style="color: darkred;">Welcome to VSTEP TEST 1</h1><br>
+    <h2>Please enter your name to begin:</h2>
+    <input type="text" id="studentName" placeholder="Enter your name" required> <br> <br> <br>
+    <button id="startQuiz">Start Test</button>
+  </div>
+
+  <div id="timer" style="position: fixed; top: 10px; right: 10px; font-size: 20px; font-weight: bold; color: red;"> <br>
+    Time Left: <span id="timeLeft">60:00</span>
+  </div>
+
+  <!-- Reading Task -->
+  <div class="reading-task" style="display: none;">
+    <h2 style="color:DodgerBlue;" id="readingTaskTitle"> &nbsp;&nbsp; Reading Task</h2>
+    <div class="flex-container">
+      <!-- Text Section (Left) -->
+      <div class="text-section">
+        <div class="scrollable-text">
+          <p id="readingText1">
+            <b>PASSAGE 1 — Questions 1-10</b><br />We always went to Ireland in June. Ever since the four of us began to
+            go on holidays together we had spent the first fortnight of the month at Glencom Lodge in County Antrim.
+            It’s a large house by the sea, not far from the village of Ardbeag. The English couple who
+            bought the house, the Malseeds, have had to add to the building, but everything has
+            been done most discreetly.
+            <br /><br />
+            It was Strafe who found Glencorn for us. He’d <mark>come across</mark> an advertisement in the
+            days when the Malseeds still felt the need to advertise. ‘How about this?’ he said one
+            evening and read out the details. We had gone away together the summer before, to a
+            hotel that had been recommended by friends, but it hadn’t been a success because the
+            food was so appalling.
+            <br /><br />
+            The four of us have been playing cards together for ages, Dekko, Strafe, Cynthia and
+            myself. They call me Milly, though strictly speaking my name is Dorothy Milson. Dekko
+            picked up his nickname at school, Dekko Deacon sounding rather good, I suppose. He
+            and Strafe were at school together, which must be why we call Strafe by his surname as the teachers used to.
+            We're all about the same age and live quite close to the town where
+            the Malseeds were before they decided to make the change from England to Ireland.
+            Quite a <mark>coincidence</mark>, we always think.
+            <br /><br />
+            ‘How very nice,’ Mrs Malseed said, smiling her welcome again this year. Some
+            instinct seems to tell her when guests are about to arrive, for she’s rarely not waiting in
+            the large, low-ceilinged hall that always smells of flowers. ‘Arthur, take the luggage up,’
+            she commanded the old porter. ‘Rose, Tulip, Lily and Geranium.’ She referred to the
+            names of the rooms reserved for us. Mrs Malseed herself painted flowers on the doors
+            of the hotel instead of putting numbers. In winter, when no one much comes to Glencom
+            Lodge, she sees to little details like that; her husband <mark>sees to</mark> redecoration and repairs.
+            <br /><br />
+            ‘Well, well, well,’ Mr Malseed said, now entering the hall through the door that leads
+            to the kitchen. ‘A hundred thousand welcomes,’ he greeted us in the Irish manner. He
+            was smiling broadly with his dark brown eyes twinkling, making us think we were rather
+            more than just another group of hotel guests. Everyone smiled, and I could feel the others
+            thinking that our holiday had truly begun. Nothing had changed at Glencorn, all was
+            well. Kitty from the dining room came out to greet us. ‘You look younger every year, all
+            four of you,’ she said, causing everyone in the hall to laugh again. Arthur led the way to
+            the rooms, carrying as much of our luggage as he could manage and returning for the
+            remainder.
+          </p>
+          <p id="readingText2" style="display: none;">
+            <b>PASSAGE 2 — Questions 11-20</b> <br>How does a person become an Olympic champion — someone capable of
+            winning the
+            gold? In reality, a combination of biological, environmental, and psychological factors,
+            as well as training and practice, all go into making a super athlete.
+            <br /><br />
+            <b>[A]</b> Perhaps the most important factor involved in becoming an elite athlete is
+            genetics. Most Olympic competitors are equipped with certain physical characteristics
+            that differentiate them from the average person. Take an elite athlete’s muscles, for
+            example. In most human skeletal muscles (the ones that make your body move), there are
+            fast-twitch fibers and slow-twitch fibers. Fast-twitch fibers help us move quickly. Olympic
+            weightlifters, for example, have a large number of fast-twitch fibers in their muscles —
+            many <mark>more</mark> than the average person. These allow them to lift hundreds of kilos from the
+            ground and over their heads in seconds. Surprisingly, a large, muscular body is not the
+            main requirement to do well in this sport. It is more important to have a large number of
+            fast-twitch fibers in the muscles.
+            <br /><br />
+            The legs of an elite marathon runner, on the other hand, might contain up to 90
+            percent slow-twitch muscle fibers. These <mark>generate</mark> energy efficiently and enable an athlete
+            to control fatigue and keep moving for a longer period of time. When we exercise long
+            or hard, it's common to experience tiredness, muscle pain, and difficulty breathing.
+            These feelings are caused when the muscles produce high amounts of lactate and can’t
+            remove it quickly enough. Athletes with many slow-twitch muscle fibers seem to be able
+            to clear the lactate from their muscles faster as they move. Thus, the average runner might
+            start to feel discomfort halfway into a race. A trained Olympic athlete, however, might
+            not feel pain until much later in the competition. <b>[B]</b>
+            <br /><br />
+            <b>[C]</b> For some Olympic competitors, size is important. Most male champion swimmers
+            are 180 cm (six feet) or taller, allowing them to reach longer and swim faster. For both
+            male and female gymnasts, though, a smaller size and body weight mean they can move
+            with greater ease, and are less likely to suffer damage when landing on the floor from a
+            height of up to 4.5 meters (15 feet).
+            <br /><br />
+            <b>[D]</b> Those raised at high altitudes in countries such as Kenya, Ethiopia, and Morocco
+            have blood that is rich in hemoglobin. Large amounts of hemoglobin carry oxygen around
+            the body faster, enabling these athletes to run better. Cultural factors also help some
+            athletes do well at certain sports. Tegla Loroupe, a young woman from northern Kenya,
+            has won several marathons. She attributes some of her success to her country’s altitude
+            (she trains at about 2,400 meters, or 8,000 feet) and some to her cultural background.
+            As a child, she had to run ten kilometers to school every day. “I’d be punished if I was
+            late,” she says.
+            <br /><br />
+            Although genetics, environment, and even culture play a part in becoming an elite
+            athlete, training and practice are needed to succeed. Marathon runners may be able to
+            control fatigue and keep moving for long periods of time, but they must train to reach
+            and maintain their goals. Weightlifters and gymnasts perfect their skills by repeating the
+            same motions again and again until they are automatic. Greg Louganis, winner of four
+            Olympic diving gold medals, says divers must train the same way to be successful: “You
+            have less than three seconds from takeoff until you hit the water, so it has to be reflex. You
+            have to repeat the dives hundreds, maybe thousands, of times.” Training this way requires
+            an athlete to be not only physically fit but psychologically healthy as well. “They have to
+            be.” says Sean McCann, a sports psychologist at the Olympic Training Center in the U.S.
+            “Otherwise, they couldn’t handle the training loads we put on them. Athletes have to be
+            good at setting goals, generating energy when they need it and managing anxiety.”
+          </p>
+          <p id="readingText3" style="display: none;">
+            <b>PASSAGE 3 — Questions 21-30</b> </br>At the end of the 1800's, Thomas Edison introduced the incandescent
+            light bulb and
+            changed the world. Remarkably, the incandescent bulb used today has changed little in
+            over a hundred years. An incandescent light consists of a glass bulb filled with an inert
+            gas such as argon. Inside the bulb, electricity passes through a metal filament. Because
+            of resistance, the filament becomes so hot that it glows. But 95% of the energy goes to
+            produce heat and is basically wasted. Given that 20% of the world’s electricity is used
+            to power lights, this represents an enormous amount of wasted energy.
+            <br /><br />
+            In the 1940’s a new, more efficient form of lighting, the fluorescent bulb, was
+            introduced. Fluorescents work by passing electrical current through gas in a tube,
+            producing invisible ultraviolet light. A phosphor coating on the inside of the tube then
+            converts the ultraviolet to visible light. Little heat is wasted. Fluorescents have proved
+            popular in offices, factories, and stores, but they never took over the residential lighting
+            market. The harsh color isn’t as pleasing as the warmer glow of incandescent lamps.
+            Besides, they have a tendency to flicker on and off and to produce an annoying buzz.
+            <br /><br />
+            Now, lighting engineers are developing a new form of lighting that is both pleasing
+            to the eyes and energy efficient. This is the lightemitting diode, or LED. LEDs are made up
+            of layers of electron-charged substances. When an electrical current passes through the
+            layers, electrons jump from one layer to another and give off light without producing heat.
+            Different types of materials result in light of different colors. Red, green, and orange LEDs have been used
+            for decades in devices such as digital clocks, calculators, and electronic
+            toys. In the future, however, whitelight-emitting diodes (WLEDs) may be used to light
+            homes. Engineers say that <mark>they</mark> are significantly more efficient than either incandescent
+            or fluorescent lights.
+            <br /><br />
+            The next challenge for researchers is to develop an efficient, bright, inexpensive
+            WLED. A few years ago, a Japanese scientist named Shuji Nakamura discovered that,
+            by using layers of gallium nitride, he could create a powerful blue LED. Later, engineers
+            devised two ways to use this blue LED to create a WLED. Red, green, and blue LEDs
+            can be combined, creating a pleasant white light. Another way is to use a chemical
+            coating similar to that inside a fluorescent bulb that converts the blue light to white.
+            Nevertheless, it will still be some time before WLEDs are commonly used in homes. WLEDs
+            are currently only twice as energy efficient as incandescent. They are also very expensive.
+            But researchers believe that they can create WLEDs that are ten times as efficient and one
+            thousand times as long-lasting as incandescent lights, making them cost effective.
+            <br /><br />
+            LEDs may someday have an even greater impact on developing countries than in the
+            developed world. Worldwide, an estimated 2 billion people lack access to electricity.
+            Lighting is usually provided by kerosene lamps. Kerosene is expensive, creates indoor
+            pollution, does not provide very bright light, and worst of all, causes many fires. A low-
+            energy (1-watt) WLED can provide enough light for a person to read by — more light, in
+            fact, than most kerosene lamps. An entire rural village could be lighted with less energy
+            than that used by a single <mark>conventional</mark> 100-watt light bulb. Energy to light these efficient
+            LEDs can be provided by batteries that are charged by pedal-driven generators, by
+            hydroelectricity from rivers or streams, by wind-powered generators, or by solar energy.
+          </p>
+          <p id="readingText4" style="display: none;">
+            <b>PASSAGE 4 — Questions 31-40</b> An important part of marketing is determining what price to charge
+            consumers for
+            goods and services. Companies <mark>aspire</mark> to set prices that are high enough to allow them
+            to make a profit but low enough to encourage people to purchase their products. To
+            determine these prices, marketing specialists must consider a variety of factors and use a
+            number of different pricing approaches.
+            <br /><br />
+            Costbased approaches determine the price of a product based on how much it costs
+            to make. This is the simplest method because manufacturers can easily determine how
+            much it will cost them to produce their goods. After they calculate the price of materials
+            and labor, they add a set percentage to that cost, called a standard markup, which
+            covers advertising, marketing, and other administrative costs, as well as profit. The main advantage to this
+            approach is its simplicity. Businesses do not need to adjust their prices
+            constantly based on changes in the market for their goods. However, the inability to
+            account for important factors relating to the market is also the weakness of the cost-based
+            approach. This is why many businesses also use more complex approaches to determine
+            their prices.
+            <br /><br />
+            In many industries, producers often pay less attention to their own costs and set
+            prices based on those of their leading competitors instead. This is called competition-
+            based pricing. It sometimes puts small businesses at a disadvantage. Because very large
+            companies can buy their materials or production machinery in bulk, they often have lower
+            production costs than smaller companies do. In order to compete, smaller companies
+            cannot depend on costbased pricing. They offen set their prices lower than those of their
+            larger competitors, even though their production costs may be higher, in order to make
+            their products attractive to consumers and build or maintain their customer base.
+            <br /><br />
+            While cost-based and competition-based pricing are largely based on <mark>objective</mark>
+            mathematical factors, like production costs and average prices, buyer-based approaches
+            are based on individual perspective. <b>[A]</b> Perceived value is how much consumers feel
+            an item is worth, as opposed to its actual monetary value. <b>[B]</b> For example, a product
+            like a pet rock, which is simply an ordinary rock marketed as a pet, has very little actual
+            monetary value. <b>[C]</b> Marketers will not use production costs to set their price, because
+            this would make the price too low. <b>[D]</b> Instead, they must determine how much consumers
+            feel their product is worth.
+            <br /><br />
+            Because perceived value is subjective, it is difficult to calculate. One common strategy
+            for determining the perceived value of a product is to interview people in focus groups,
+            small groups of people who share their feelings about a product with market experts. The
+            responses of focus groups often change according to the group being interviewed, so
+            experts try to interview a large enough sample to get useful information. Along with focus
+            groups and market experts, some businesses may even employ psychologists to help
+            them understand the minds and emotions of consumers so that <mark>they</mark> can create products
+            that people will see as valuable. The more perceived value an item has, the more a
+            company can charge for that item, regardless of its production costs or the prices set by
+            competitors.
+          </p>
+        </div>
+      </div>
+
+      <!-- Questions Section (Right) -->
+      <div class="question-section">
+        <div class="scrollable-questions">
+          <form id="quizForm">
+            <!-- Questions for Page 1 -->
+            <div class="page" id="page1">
+              <div class="question">
+                <p><b>1. What is the main idea of the text?</b></p>
+                <label><input type="radio" name="q1" value="a">A) About nature<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q1" value="b">B) About technology<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q1" value="c">C) About education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q1" value="d">D) About history<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>2. What does "efficitur" refer to in the text?</p>
+                <label><input type="radio" name="q2" value="a">A) A plant<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q2" value="b">B) A concept<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q2" value="c">C) An animal<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q2" value="d">D) A place<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>3. What is the tone of the text?</p>
+                <label><input type="radio" name="q3" value="a">A) Informative<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q3" value="b">B) Persuasive<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q3" value="c">C) Humorous<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q3" value="d">D) Critical<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>4. What is the purpose of the text?</p>
+                <label><input type="radio" name="q4" value="a">A) To entertain<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q4" value="b">B) To inform<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q4" value="c">C) To persuade<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q4" value="d">D) To criticize<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>5. What is the author's attitude towards the topic?</p>
+                <label><input type="radio" name="q5" value="a">A) Positive<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q5" value="b">B) Negative<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q5" value="c">C) Neutral<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q5" value="d">D) Indifferent<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>6. What is the primary focus of the text?</p>
+                <label><input type="radio" name="q6" value="a">A) Science<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q6" value="b">B) History<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q6" value="c">C) Art<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q6" value="d">D) Politics<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>7. What does the author emphasize in the text?</p>
+                <label><input type="radio" name="q7" value="a">A) Innovation<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q7" value="b">B) Tradition<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q7" value="c">C) Culture<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q7" value="d">D) Economy<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>8. What is the central theme of the text?</p>
+                <label><input type="radio" name="q8" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q8" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q8" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q8" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>9. What does the author suggest about health?</p>
+                <label><input type="radio" name="q9" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q9" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q9" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q9" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>10. What is the main argument of the text?</p>
+                <label><input type="radio" name="q10" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q10" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q10" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q10" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+            </div>
+
+            <!-- Questions for Page 2 -->
+            <div class="page" id="page2" style="display: none;">
+              <div class="question">
+                <p>11. What is the primary focus of the second text?</p>
+                <label><input type="radio" name="q11" value="a">A) Science<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q11" value="b">B) History<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q11" value="c">C) Art<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q11" value="d">D) Politics<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>12. What does the author emphasize in the second text?</p>
+                <label><input type="radio" name="q12" value="a">A) Innovation<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q12" value="b">B) Tradition<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q12" value="c">C) Culture<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q12" value="d">D) Economy<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>13. What is the central theme of the second text?</p>
+                <label><input type="radio" name="q13" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q13" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q13" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q13" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>14. What does the author suggest about health?</p>
+                <label><input type="radio" name="q14" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q14" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q14" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q14" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>15. What is the main argument of the second text?</p>
+                <label><input type="radio" name="q15" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q15" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q15" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q15" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>11. What is the primary focus of the second text?</p>
+                <label><input type="radio" name="q16" value="a">A) Science<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q16" value="b">B) History<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q16" value="c">C) Art<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q16" value="d">D) Politics<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>12. What does the author emphasize in the second text?</p>
+                <label><input type="radio" name="q17" value="a">A) Innovation<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q17" value="b">B) Tradition<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q17" value="c">C) Culture<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q17" value="d">D) Economy<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>13. What is the central theme of the second text?</p>
+                <label><input type="radio" name="q18" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q18" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q18" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q18" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>14. What does the author suggest about health?</p>
+                <label><input type="radio" name="q19" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q19" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q19" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q19" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>15. What is the main argument of the second text?</p>
+                <label><input type="radio" name="q20" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q20" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q20" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q20" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+            </div>
+
+            <!-- Questions for Page 3 -->
+            <div class="page" id="page3" style="display: none;">
+              <div class="question">
+                <p>21. What is the central theme of the third text?</p>
+                <label><input type="radio" name="q21" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q21" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q21" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q21" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>22. What does the author suggest about health?</p>
+                <label><input type="radio" name="q22" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q22" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q22" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q22" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>21. What is the central theme of the third text?</p>
+                <label><input type="radio" name="q23" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q23" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q23" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q23" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>22. What does the author suggest about health?</p>
+                <label><input type="radio" name="q24" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q24" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q24" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q24" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>21. What is the central theme of the third text?</p>
+                <label><input type="radio" name="q25" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q25" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q25" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q25" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>22. What does the author suggest about health?</p>
+                <label><input type="radio" name="q26" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q26" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q26" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q26" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>21. What is the central theme of the third text?</p>
+                <label><input type="radio" name="q27" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q27" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q27" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q27" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>22. What does the author suggest about health?</p>
+                <label><input type="radio" name="q28" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q28" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q28" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q28" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>21. What is the central theme of the third text?</p>
+                <label><input type="radio" name="q29" value="a">A) Sports<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q29" value="b">B) Business<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q29" value="c">C) Health<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q29" value="d">D) Travel<span class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>22. What does the author suggest about health?</p>
+                <label><input type="radio" name="q30" value="a">A) It's overrated<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q30" value="b">B) It's essential<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q30" value="c">C) It's optional<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q30" value="d">D) It's irrelevant<span
+                    class="feedback"></span></label><br>
+              </div>
+              <!-- Add 8 more questions here -->
+            </div>
+
+            <!-- Questions for Page 4 -->
+            <div class="page" id="page4" style="display: none;">
+
+              <div class="question">
+                <p>31. What is the main argument of the fourth text?</p>
+                <label><input type="radio" name="q31" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q31" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q31" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q31" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>32. What does the author propose as a solution?</p>
+                <label><input type="radio" name="q32" value="a">A) More laws<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q32" value="b">B) Better education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q32" value="c">C) Renewable energy<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q32" value="d">D) Less consumption<span
+                    class="feedback"></span></label><br>
+              </div>
+              <!-- Add 8 more questions here -->
+              <div class="question">
+                <p>31. What is the main argument of the fourth text?</p>
+                <label><input type="radio" name="q33" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q33" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q33" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q33" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>32. What does the author propose as a solution?</p>
+                <label><input type="radio" name="q34" value="a">A) More laws<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q34" value="b">B) Better education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q34" value="c">C) Renewable energy<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q34" value="d">D) Less consumption<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>31. What is the main argument of the fourth text?</p>
+                <label><input type="radio" name="q35" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q35" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q35" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q35" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>32. What does the author propose as a solution?</p>
+                <label><input type="radio" name="q36" value="a">A) More laws<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q36" value="b">B) Better education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q36" value="c">C) Renewable energy<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q36" value="d">D) Less consumption<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>31. What is the main argument of the fourth text?</p>
+                <label><input type="radio" name="q37" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q37" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q37" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q37" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>32. What does the author propose as a solution?</p>
+                <label><input type="radio" name="q38" value="a">A) More laws<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q38" value="b">B) Better education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q38" value="c">C) Renewable energy<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q38" value="d">D) Less consumption<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>31. What is the main argument of the fourth text?</p>
+                <label><input type="radio" name="q39" value="a">A) Politics is corrupt<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q39" value="b">B) Environment is crucial<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q39" value="c">C) Technology is dangerous<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q39" value="d">D) Education is outdated<span
+                    class="feedback"></span></label><br>
+              </div>
+              <div class="question">
+                <p>32. What does the author propose as a solution?</p>
+                <label><input type="radio" name="q40" value="a">A) More laws<span class="feedback"></span></label><br>
+                <label><input type="radio" name="q40" value="b">B) Better education<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q40" value="c">C) Renewable energy<span
+                    class="feedback"></span></label><br>
+                <label><input type="radio" name="q40" value="d">D) Less consumption<span
+                    class="feedback"></span></label><br>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end; margin-right: 20px;">
+      <button type="button" id="prevPage">Previous Page</button>
+      &nbsp;&nbsp;<button type="button" id="nextPage">Next Page</button>
+      &nbsp;&nbsp;<button type="button" id="moveToWriting" style="display: none;">Move to Writing Test</button>
+    </div>
+  </div>
+
+  <div class="writing-task" style="display: none;">
+    <h1 style="color:DodgerBlue;"> &nbsp;&nbsp;&nbsp;Writing Task</h1>
+    <br>
+    <!-- Task 1: Write an Email -->
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task 1</h2>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should spend about 20 minutes on this task.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your English-speaking friend, Jo sent you an email. Read part of her email below.
+    </p>
+    <div class="writingtask1">
+      <p>So that's all about me. Tell me all about yourself! <br>
+        What do you like doing in your spare time? And what do you like best about your studies?</p>
+    </div>
+    <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write a reply to Jo. You should write at least 120 words.</p>
+    <p style="color: blue; position: static"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email Word Count: <span
+        id="emailWordCount">0</span></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="emailTextarea" placeholder="Write your email here..."
+      oninput="updateWordCount('email')"></textarea>
+    <br>
+
+    <!-- Task 2: Write an Essay -->
+    <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task 2: Write an Essay</h2>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should spend about 40 minutes on this task.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write about the following topic.</p>
+    <div class="writingtask2">
+      <p>Nowadays online shopping becomes more popular than in-store shopping. <br> Is it a positive or a negative
+        development?
+        Give your reasons and examples.</p>
+    </div>
+    <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write an essay to an educated reader to discuss the effects of online shopping.
+      Include reasons and any relevant examples to support your answer.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should write at least 250 words. Your response will be evaluated in terms of
+      Task Fulfillment, Organization, Vocabulary and Grammar.</p>
+    <p style="color: blue; position: static"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Essay Word Count: <span
+        id="essayWordCount">0</span></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="essayTextarea" placeholder="Write your essay here..."
+      oninput="updateWordCount('essay')"></textarea>
+    <br>
+    <div style="display: flex; justify-content: flex-end; margin-right: 20px;">
+      <button id="submitWriting" style="float: right">Submit Writing</button>
+    </div>
+
+    <!-- Results Page -->
+    <div class="results-page" style="display: none;">
+      <h1>Quiz Results</h1>
+      <p id="readingScoreResult">Your reading score: <span id="scoreValue">0</span></p>
+      <p id="writingStatus">Writing Task 1: <span id="task1Status">Incomplete</span></p>
+      <p id="writingStatus">Writing Task 2: <span id="task2Status">Incomplete</span></p>
+      <button id="reviewAnswers">Review Answers</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
