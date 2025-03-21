@@ -137,7 +137,7 @@ document.getElementById('submitWriting').addEventListener('click', () => {
   };
 
   // Send the data to your HTTP server
-  fetch('https://your-infinityfree-domain.com/save_results.php', { // Replace with your actual InfinityFree URL
+  fetch('https://your-infinityfree-domain.com/vstep_results.php', { // Replace with your actual InfinityFree URL
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
